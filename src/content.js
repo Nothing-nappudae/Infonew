@@ -1,6 +1,6 @@
 export const site = {
   title: "Sai’s Page",
-  tagline: "Serious Mode ⚡ — Hobbies. Hop on some if you can!",
+  tagline: "Dreaming in algorithms, building the future in code.",
   basePath: "/Info/",
   favicon: "/favicon.svg",
   pfp: "https://i.imgur.com/i2cw7NA.jpeg",
