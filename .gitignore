@@ -1,0 +1,47 @@
+# Node & dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Build output
+dist/
+build/
+.cache/
+.temp/
+
+# Environment & config
+.env
+.env.local
+.env.*.local
+
+# Editor folders / files
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# TypeScript / Vite
+*.tsbuildinfo
+vite.config.timestamp-*
+vite.config.[jt]s.timestamp-*
+
+# OS
+*.log
+*.bak
+*.tmp
+
+# GitHub Pages / gh-pages temp
+gh-pages/
+!.github/
+
+# Local testing
+coverage/
+*.local
+
+# Optional: ignore generated images or placeholder assets
+public/og.jpg
+public/temp/

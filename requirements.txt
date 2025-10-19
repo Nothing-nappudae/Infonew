@@ -1,0 +1,13 @@
+# runtime dependencies
+react
+react-dom
+framer-motion
+lucide-react
+
+# dev dependencies
+vite
+@vitejs/plugin-react
+tailwindcss
+postcss
+autoprefixer
+gh-pages
