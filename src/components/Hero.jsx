@@ -1,13 +1,15 @@
-import { site } from '../content.js'
-import { motion, useReducedMotion } from 'framer-motion'
+import { site } from "../content.js";
+import { motion, useReducedMotion } from "framer-motion";
 
 export default function Hero() {
-  const prefersReducedMotion = useReducedMotion()
+  const prefersReducedMotion = useReducedMotion();
   return (
     <div className="grid items-center gap-8 md:grid-cols-2">
       <div className="space-y-4">
         <h1 className="text-4xl font-bold tracking-tight">{site.title}</h1>
-        <p className="text-lg text-neutral-700 dark:text-neutral-300">{site.tagline}</p>
+        <p className="text-lg text-neutral-700 dark:text-neutral-300">
+          {site.tagline}
+        </p>
         <div className="flex flex-wrap gap-3">
           {site.ctas.map((c) => (
             <a
@@ -20,7 +22,10 @@ export default function Hero() {
               {c.label}
             </a>
           ))}
-          <a href="#hobbies" className="text-sm underline underline-offset-4 focus-ring">
+          <a
+            href="#hobbies"
+            className="text-sm underline underline-offset-4 focus-ring"
+          >
             Back to Fun →
           </a>
         </div>
@@ -42,5 +47,5 @@ export default function Hero() {
         </motion.picture>
       </div>
     </div>
-  )
+  );
 }

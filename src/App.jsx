@@ -1,64 +1,76 @@
-import { useEffect, useMemo, useState } from 'react'
-import { site } from './content.js'
-import Header from './components/Header.jsx'
-import Hero from './components/Hero.jsx'
-import FeaturedGrid from './components/FeaturedGrid.jsx'
-import Section from './components/Section.jsx'
-import Skills from './components/Skills.jsx'
-import ReadingList from './components/ReadingList.jsx'
-import HobbiesStrip from './components/HobbiesStrip.jsx'
-import Contact from './components/Contact.jsx'
-import Footer from './components/Footer.jsx'
-import Now from './components/Now.jsx' // ✅ use the Now component
+import { useEffect, useMemo, useState } from "react";
+import { site } from "./content.js";
+import Header from "./components/Header.jsx";
+import Hero from "./components/Hero.jsx";
+import FeaturedGrid from "./components/FeaturedGrid.jsx";
+import Section from "./components/Section.jsx";
+import Skills from "./components/Skills.jsx";
+import ReadingList from "./components/ReadingList.jsx";
+import HobbiesStrip from "./components/HobbiesStrip.jsx";
+import Contact from "./components/Contact.jsx";
+import Footer from "./components/Footer.jsx";
+import Now from "./components/Now.jsx";
+import Starfield from "./components/Starfield.jsx";
+import CursorGlow from "./components/CursorGlow.jsx";
 
-// Theme persistence
+/* Theme persistence */
 function useTheme() {
   const [theme, setTheme] = useState(() => {
-    const saved = typeof window !== 'undefined' ? localStorage.getItem('theme') : null
-    if (saved) return saved
-    const prefersDark = typeof window !== 'undefined' && window.matchMedia('(prefers-color-scheme: dark)').matches
-    return prefersDark ? 'dark' : 'light'
-  })
+    const saved =
+      typeof window !== "undefined" ? localStorage.getItem("theme") : null;
+    if (saved) return saved;
+    const prefersDark =
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches;
+    return prefersDark ? "dark" : "light";
+  });
   useEffect(() => {
-    const root = document.documentElement
-    if (theme === 'dark') root.classList.add('dark')
-    else root.classList.remove('dark')
-    localStorage.setItem('theme', theme)
-  }, [theme])
-  return { theme, setTheme }
+    const root = document.documentElement;
+    if (theme === "dark") root.classList.add("dark");
+    else root.classList.remove("dark");
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+  return { theme, setTheme };
 }
 
-// Scrollspy
+/* Scrollspy */
 function useScrollSpy(ids) {
-  const [active, setActive] = useState('home')
-  const options = useMemo(() => ({ rootMargin: '-45% 0px -50% 0px', threshold: 0 }), [])
+  const [active, setActive] = useState("home");
+  const options = useMemo(
+    () => ({ rootMargin: "-45% 0px -50% 0px", threshold: 0 }),
+    []
+  );
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) setActive(entry.target.id)
-      })
-    }, options)
+      entries.forEach(
+        (entry) => entry.isIntersecting && setActive(entry.target.id)
+      );
+    }, options);
     ids.forEach((id) => {
-      const el = document.getElementById(id)
-      if (el) observer.observe(el)
-    })
-    return () => observer.disconnect()
-  }, [ids, options])
-  return active
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+    return () => observer.disconnect();
+  }, [ids, options]);
+  return active;
 }
 
 export default function App() {
-  const { theme, setTheme } = useTheme()
-  const sectionIds = site.sections.map((s) => s.id)
-  const active = useScrollSpy(sectionIds)
+  const { theme, setTheme } = useTheme();
+  const sectionIds = site.sections.map((s) => s.id);
+  const active = useScrollSpy(sectionIds);
 
   return (
-    <div>
+    <div className="relative">
+      {/* Background & FX (behind all content) */}
+      <Starfield />
+      <CursorGlow />
+
       <Header
         sections={site.sections}
         active={active}
         theme={theme}
-        onToggle={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+        onToggle={() => setTheme(theme === "dark" ? "light" : "dark")}
       />
 
       <main id="main" className="mx-auto max-w-6xl px-4">
@@ -82,7 +94,6 @@ export default function App() {
           <Skills />
         </Section>
 
-        {/* ✅ Use Now component and pull content from site.now */}
         <Section id="now" title={site.now.heading}>
           <Now now={site.now} />
         </Section>
@@ -103,5 +114,5 @@ export default function App() {
 
       <Footer />
     </div>
-  )
+  );
 }
