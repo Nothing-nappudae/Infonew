@@ -29,13 +29,13 @@ export const site = {
   featured: [
     {
       title: 'Personal AI Notes Reader ("Eriski")',
-      slug: "eriski", // helps the grid detect it explicitly
+      slug: "eriski",
       blurb:
         "SLM trained on my physics notes. Offline: Ollama + LangChain + ChromaDB.",
       tech: ["Python", "LangChain", "Ollama", "ChromaDB"],
       repo: "https://github.com/Nothing-nappudae/Eriski",
       more: "I made Eriski because I was tired of AI giving me copy-pasted textbook answers. So I trained my own — one that actually reads my physics notes and talks back like a study partner. It runs offline using Ollama + LangChain + ChromaDB, and it can explain derivations, laws, and even my own messy thought process from my notes.",
-      media: Animation, // shows your GIF in the modal
+      media: Animation,
       mediaAlt: "Eriski demo animation",
     },
     {
