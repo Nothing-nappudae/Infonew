@@ -1,3 +1,5 @@
+import Animation from "./assets/Animation.gif";
+
 export const site = {
   title: "Sai’s Page",
   tagline: "Dreaming in algorithms, building the future in code.",
@@ -27,12 +29,14 @@ export const site = {
   featured: [
     {
       title: 'Personal AI Notes Reader ("Eriski")',
+      slug: "eriski", // helps the grid detect it explicitly
       blurb:
         "SLM trained on my physics notes. Offline: Ollama + LangChain + ChromaDB.",
       tech: ["Python", "LangChain", "Ollama", "ChromaDB"],
       repo: "https://github.com/Nothing-nappudae/Eriski",
-      more:
-        "I made Eriski because I was tired of AI giving me copy-pasted textbook answers. So I trained my own — one that actually reads my physics notes and talks back like a study partner. It runs offline using Ollama + LangChain + ChromaDB, and it can explain derivations, laws, and even my own messy thought process from my notes.",
+      more: "I made Eriski because I was tired of AI giving me copy-pasted textbook answers. So I trained my own — one that actually reads my physics notes and talks back like a study partner. It runs offline using Ollama + LangChain + ChromaDB, and it can explain derivations, laws, and even my own messy thought process from my notes.",
+      media: Animation, // shows your GIF in the modal
+      mediaAlt: "Eriski demo animation",
     },
     {
       title: "Quest Manager Discord Bot",
@@ -40,8 +44,7 @@ export const site = {
         "A Quest Bot that manages quests and tracks the progress of server members.",
       tech: ["Node.js", "Discord.js", "SQLite"],
       repo: "https://github.com/Nothing-nappudae/Quest-Tracker",
-      more:
-        "This was one of my first real projects — the one that got me hooked on building. I started using JSON files to store quest data before I even knew what a real database was. That experience taught me how data persistence works, how to organize information efficiently, and how APIs tie everything together.",
+      more: "This was one of my first real projects — the one that got me hooked on building. I started using JSON files to store quest data before I even knew what a real database was. That experience taught me how data persistence works, how to organize information efficiently, and how APIs tie everything together.",
     },
     {
       title: "Pendula",
@@ -49,30 +52,31 @@ export const site = {
         "An interactive Python simulator for visualizing Newtonian motion single and double pendulums built with NumPy and Matplotlib.",
       tech: ["Python", "Ton of maths"],
       repo: "https://github.com/Nothing-nappudae/Pendula",
-      more:
-        "Pendula is an Interactive Python-based pendulum Simulation for single and double pendulums that uses real-time numerical integrations such as Runge-Kutta and energy analysis.",
+      more: "Pendula is an Interactive Python-based pendulum Simulation for single and double pendulums that uses real-time numerical integrations such as Runge-Kutta and energy analysis.",
     },
   ],
 
-  // ✅ FIXED projects array
   projects: [
     {
       title: "Discord Study Bot",
       blurb: "Pomodoro and reminders.",
       tech: ["Node"],
       repo: "REPO_LINK_STUDY",
+      more: "Timer, DM reminders, and daily streaks.",
     },
     {
       title: "Valorant Aim Logger",
       blurb: "Logs aim drills.",
       tech: ["Python"],
       repo: "REPO_LINK_AIM",
+      more: "CSV logs + charts; routine tracking.",
     },
     {
       title: "Finance Tracker",
       blurb: "Personal finance tracking bot.",
       tech: ["Python"],
       repo: "REPO_LINK_FIN",
+      more: "Budgets, categories, monthly summary.",
     },
     {
       title: "More on the way",
@@ -82,20 +86,17 @@ export const site = {
     },
   ],
 
-  // ✅ UPDATED "Now" SECTION with Jarvis details and Quick DM button
   now: {
     heading: "Currently Working On",
     text: `Jarvis — my ongoing personal AI assistant project built in Python. 
 It’s in its early development stage, where I’m designing its modular logic and groundwork for a custom-trained AI model. 
 My goal is to create a fully personalized assistant that understands natural language, adapts to user behavior, and executes real-world tasks intelligently.`,
-
     details: `⚙️ Core Tech: Python, SpeechRecognition, pyttsx3, Custom LLM (in progress)
 🚀 Focus: Local inference, modular architecture, personalized interaction logic
 🎯 Next: Voice interface + long-term memory integration`,
-
     dm: {
       label: "💬 Quick DM",
-      href: "https://discord.com/users/1423691181950504960", // Replace this with your actual Discord ID link
+      href: "https://discord.com/users/1423691181950504960",
     },
   },
 
